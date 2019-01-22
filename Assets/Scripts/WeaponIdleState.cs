@@ -27,14 +27,20 @@ public sealed class WeaponIdleState : FSMState<ProjectileWeapon>
         {
             if (w.currentMagazine > 0)
             {
-                w.ChangeState(WeaponShootingState.Instance);
+                if(!w._player.isSprinting && !w._player.isDashing)
+                {
+                    w.ChangeState(WeaponShootingState.Instance);
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
             if ((w.currentMagazine < w.magazineSize) && (w.ammoInventory.GetStock(w.ammoType) > 0))
             {
-                w.ChangeState(WeaponReloadingState.Instance);
+                if(!w._player.isSprinting && !w._player.isDashing)
+                {
+                    w.ChangeState(WeaponReloadingState.Instance);
+                }
             }
         }
     }

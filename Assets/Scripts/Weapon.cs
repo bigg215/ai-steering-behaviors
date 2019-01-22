@@ -5,7 +5,12 @@ using UnityEngine;
 public class Weapon : MonoBehaviour {
 
     public float feedbackAmount = 10f;
-    private PlayerController player;
+    [HideInInspector] public PlayerController _player;
+
+    public virtual void Awake()
+    {
+        _player = transform.root.GetComponent<PlayerController>();
+    }
 
     public virtual void Start()
     {
@@ -20,8 +25,7 @@ public class Weapon : MonoBehaviour {
 
     public void Knockback()
     {
-        player = transform.root.GetComponent<PlayerController>();
-        player.feedback(feedbackAmount);
+        _player.feedback(feedbackAmount);
     }
 
     public virtual void WeaponUse()

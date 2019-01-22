@@ -40,8 +40,10 @@ public class ProjectileWeapon : Weapon {
         return loadMagazine;
     }
 
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
+   
         ammoInventory = transform.root.gameObject.GetComponent<AmmoInventory>();
         ammoHUD = GameObject.Find("/HUDCanvas/AmmoUI/AmmoDisplay").GetComponent<Text>();
         magazineHUD = GameObject.Find("/HUDCanvas/AmmoUI/MagazineDisplay").GetComponent<Text>();

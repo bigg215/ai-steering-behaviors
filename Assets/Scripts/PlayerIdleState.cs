@@ -29,6 +29,10 @@ public sealed class PlayerIdleState : FSMState<PlayerController>
         {
             e.ChangeState(PlayerSprintState.Instance);
         }
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            e.ChangeState(PlayerDashState.Instance);
+        }
     }
 
     public override void Exit(PlayerController e)

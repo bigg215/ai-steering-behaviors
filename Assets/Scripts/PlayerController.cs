@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     private Transform weaponFlip;
 
     [HideInInspector] public bool isSprinting = false;
+    [HideInInspector] public bool isDashing = false;
 
 	// Use this for initialization
 	void Start () {
@@ -78,10 +79,15 @@ public class PlayerController : MonoBehaviour {
         rb2d.velocity = movement * (speed*2);
     }
 
-    private void FixedUpdate()
+    public IEnumerator DashPlayer()
     {
-        
+        this.isDashing = true;
 
+        Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        Vector2 movement = new Vector2(dir.normalized.x, dir.normalized.y);
+        rb2d.velocity = movement * 50;
+        yield return new WaitForSeconds(0.1f);
+        this.ChangeState(PlayerIdleState.Instance);
     }
 
     public void feedback(float strength)

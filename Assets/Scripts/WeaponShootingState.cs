@@ -23,17 +23,20 @@ public sealed class WeaponShootingState : FSMState<ProjectileWeapon>
 
     public override void Execute(ProjectileWeapon w)
     {
-        
-        if (!w.hasFired && w.fireRate == 0)
+        if (!w._player.isSprinting && !w._player.isDashing)
         {
-            w.WeaponUse();
-            w.hasFired = true;
-        } else
-        {
-            if ((Time.time - w.lastFired > 1 / w.fireRate) && w.currentMagazine != 0)
+            if (!w.hasFired && w.fireRate == 0)
             {
-                w.lastFired = Time.time;
                 w.WeaponUse();
+                w.hasFired = true;
+            }
+            else
+            {
+                if ((Time.time - w.lastFired > 1 / w.fireRate) && w.currentMagazine != 0)
+                {
+                    w.lastFired = Time.time;
+                    w.WeaponUse();
+                }
             }
         }
        
