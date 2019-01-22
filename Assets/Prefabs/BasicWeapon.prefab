@@ -99,11 +99,16 @@ MonoBehaviour:
     type: 3}
   ammoType: 0
   ammoPerShot: 1
+  projectileCount: 3
+  projectileDeviationAngle: 10
   magazineSize: 15
   reloadTime: 5
+  fireRate: 10
   hasFired: 0
   isReloading: 0
   currentMagazine: 0
+  lastFired: 0
+  ammoInventory: {fileID: 0}
 --- !u!1 &8710501060912461445
 GameObject:
   m_ObjectHideFlags: 0

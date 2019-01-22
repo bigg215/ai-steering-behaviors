@@ -7,9 +7,16 @@ public class WeaponController : MonoBehaviour {
     public Transform attachmentPoint;
     public GameObject initialWeapon;
     private GameObject currentWeapon;
+    private PlayerController _player;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+
+    private void Awake()
+    {
+        _player = GetComponent<PlayerController>();
+    }
+
+    void Start () {
         if (initialWeapon != null)
         {
             currentWeapon = Instantiate(initialWeapon, attachmentPoint.position, attachmentPoint.rotation, attachmentPoint.transform);
@@ -27,6 +34,11 @@ public class WeaponController : MonoBehaviour {
         }
         
         currentWeapon = Instantiate(newWeapon, attachmentPoint.position, attachmentPoint.rotation, attachmentPoint.transform);
+
+        if (_player.IsFlipped())
+        {
+            currentWeapon.transform.localScale = Vector3.Scale(currentWeapon.transform.localScale, new Vector3(-1, 1, 1));
+        }
     }
 
 }

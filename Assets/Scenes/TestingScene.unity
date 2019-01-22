@@ -372,6 +372,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213259731}
   m_CullTransparentMesh: 0
+--- !u!1 &239159103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6384107214624582861, guid: 565aaec5f48ab3847b8c71d6d63ad923,
+    type: 3}
+  m_PrefabInstance: {fileID: 6384107213442355935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &239159104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239159103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c2066cfcc2767468933014615a0007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPickup: {fileID: 8502970991473385928, guid: 341d404de8b83314d96813ec1953d489,
+    type: 3}
 --- !u!1 &280428348
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,6 +1556,7 @@ GameObject:
   - component: {fileID: 1385206640}
   - component: {fileID: 1385206639}
   - component: {fileID: 1385206641}
+  - component: {fileID: 1385206642}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1556,6 +1577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  isSprinting: 0
 --- !u!58 &1385206634
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1724,6 +1746,34 @@ MonoBehaviour:
   startingHealth: 100
   currentHealth: 0
   healthSlider: {fileID: 144757580}
+--- !u!114 &1385206642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385206632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2437124bd5d7fcb4a814b57b70457f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 500
+  startDashTime: 0.1
 --- !u!1 &1511817554
 GameObject:
   m_ObjectHideFlags: 0
@@ -2254,5 +2304,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6384107214624582860, guid: 565aaec5f48ab3847b8c71d6d63ad923, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 565aaec5f48ab3847b8c71d6d63ad923, type: 3}

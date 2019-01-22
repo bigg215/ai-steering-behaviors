@@ -11,14 +11,18 @@ public class ProjectileWeapon : Weapon {
     public GameObject bulletPrefab;
     public AmmoType ammoType;
     public int ammoPerShot = 1;
+    public int projectileCount = 1;
+    public float projectileDeviationAngle = 0.0f;
     public int magazineSize = 15;
     public float reloadTime = 1.0f;
+    public float fireRate = 0.0f;
     private Text ammoHUD;
     private Text magazineHUD;
 
     [HideInInspector] public bool hasFired;
     [HideInInspector] public bool isReloading;
     [HideInInspector] public int currentMagazine = 0;
+    [HideInInspector] public float lastFired;
     [HideInInspector] public AmmoInventory ammoInventory;
 
     public bool Fire(AmmoInventory ammo)
@@ -66,6 +70,11 @@ public class ProjectileWeapon : Weapon {
         this.UpdateAmmoCounts();
     }
 
+    private void OnDestroy()
+    {
+        ammoInventory.Collect(ammoType, currentMagazine);
+    }
+
     public void UpdateAmmoCounts()
     {
         ammoHUD.text = ammoInventory.GetStock(ammoType).ToString() + " / " + ammoInventory.GetMax(ammoType).ToString();
@@ -95,12 +104,14 @@ public class ProjectileWeapon : Weapon {
         currentMagazine += Reload(ammoInventory);
     }
 
-    void Shoot()
+    public void Shoot()
     {
-        var temp = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        temp.transform.rotation *= Quaternion.Euler(0, 0, 10);
-        var temp2 = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        temp2.transform.rotation *= Quaternion.Euler(0, 0, -10);
+        for (int i = 0; i < projectileCount; i++)
+        {
+
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation * Quaternion.Euler(0, 0, z: Random.Range(-projectileDeviationAngle, projectileDeviationAngle)));
+
+        }
         currentMagazine -= ammoPerShot;
     }
 
