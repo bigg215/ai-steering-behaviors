@@ -719,6 +719,7 @@ GameObject:
   - component: {fileID: 370061849}
   - component: {fileID: 370061848}
   - component: {fileID: 370061847}
+  - component: {fileID: 370061850}
   m_Layer: 0
   m_Name: Diamond
   m_TagString: Untagged
@@ -762,7 +763,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: fe8370dd095bec440915e3b9a6d44e88, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -782,7 +783,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370061844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.013009, y: 2.0121796, z: 0}
+  m_LocalPosition: {x: -4.29, y: 1.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -847,7 +848,23 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &370061850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370061844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe92c35dd1baa146b1412e71504ed39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mass: 15
+  MaxVelocity: 3
+  MaxForce: 15
+  target: {fileID: 1385206637}
 --- !u!1 &444437896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,6 +1595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   isSprinting: 0
+  isDashing: 0
 --- !u!58 &1385206634
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1758,22 +1776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2437124bd5d7fcb4a814b57b70457f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashSpeed: 500
-  startDashTime: 0.1
 --- !u!1 &1511817554
 GameObject:
   m_ObjectHideFlags: 0
